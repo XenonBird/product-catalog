@@ -1,3 +1,5 @@
+import { randomId, randomImageUrl, randomNumber } from "./utils";
+
 function generateRandomProduct(id) {
   const colors = [
     "black",
@@ -35,13 +37,11 @@ function generateRandomProduct(id) {
     materials[Math.floor(Math.random() * materials.length)];
 
   return {
-    id,
+    id: randomId(),
     name: `${randomColor}  ${randomMaterial} ${randomType} `,
     description: `This is the description of ${randomType} product ${id}.`,
-    price: parseFloat((Math.random() * 50 + 10) * 10).toFixed(2),
-    imageUrl: `https://picsum.photos/id/${Math.round(
-      Math.random() * 1000
-    )}/75/50`,
+    price: randomNumber(2000, 200).toFixed(2),
+    imageUrl: randomImageUrl(),
     category: "clothing",
     rating: Math.round(Math.random() * 10) / 2,
     inStock: Math.random() < 0.8, // 80% chance of being in stock
@@ -55,8 +55,8 @@ function generateRandomProduct(id) {
 }
 
 var productsList = [];
-for (let i = 1; i <= 10; i++) {
-  productsList.push(generateRandomProduct("p-" + i));
+for (let i = 1; i <= 5; i++) {
+  productsList.push(generateRandomProduct(i));
 }
 
 const updateProductsList = (updatedList) => {

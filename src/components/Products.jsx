@@ -29,8 +29,8 @@ const ProductItem = ({ product }) => {
     >
       <div className="w-full aspect-[3/2] bg-gray-300">
         {/* It's commented out because development phase */}
-        {/* <img src={imageUrl} alt={name} className="w-full h-full object-cover" /> */}
-        {console.log(id, "=>", imageUrl)}
+        <img src={imageUrl} alt={name} className="w-full h-full object-cover" />
+        {/* <p className="m-4 mt-4">{name + " => "+ imageUrl}</p> */}
       </div>
       <div className="p-4 mt-auto">
         <h2 className="text-xl font-semibold">
