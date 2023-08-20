@@ -1,4 +1,4 @@
-function generateRandomGarment(id) {
+function generateRandomProduct(id) {
   const colors = [
     "black",
     "white",
@@ -37,7 +37,7 @@ function generateRandomGarment(id) {
   return {
     id,
     name: `${randomColor}  ${randomMaterial} ${randomType} `,
-    description: `This is the description of ${randomType} garment ${id}.`,
+    description: `This is the description of ${randomType} product ${id}.`,
     price: parseFloat((Math.random() * 50 + 10) * 10).toFixed(2),
     imageUrl: `https://picsum.photos/id/${Math.round(
       Math.random() * 1000
@@ -54,9 +54,13 @@ function generateRandomGarment(id) {
   };
 }
 
-const garmentCatalog = [];
+var productsList = [];
 for (let i = 1; i <= 10; i++) {
-  garmentCatalog.push(generateRandomGarment("p-" + i));
+  productsList.push(generateRandomProduct("p-" + i));
 }
 
-export { garmentCatalog };
+const updateProductsList = (updatedList) => {
+  productsList = updatedList;
+};
+
+export { productsList, updateProductsList };
