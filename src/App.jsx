@@ -6,6 +6,7 @@ import About from "./components/About";
 import NotFound from "./components/NotFound"; // Import the NotFound component
 import Products from "./components/Products";
 import Dashboard from "./components/Dashboard";
+import ProductView from "./components/ProductView";
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* <Route path="/product-view/:productId" element={<Products />} /> */}
+        <Route path="/product-view/:productId" element={<ProductView />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

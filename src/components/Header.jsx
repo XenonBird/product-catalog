@@ -15,21 +15,19 @@ const Header = () => {
 
   return (
     <header className="bg-gray-800 text-white border-0 border-b border-b-gray-950">
-      <div className="container p-6 max-w-6xl mx-auto px-4 flex flex-wrap gap-4 items-center justify-between">
+      <div className="container p-6 max-w-6xl mx-auto flex flex-wrap gap-4 items-center justify-between">
         <div className="flex items-center">
           <Link to="/" className="text-3xl font-semibold">
             FashionHub
           </Link>
         </div>
-        <nav className="p-0 md:px-4 font-semibold  flex items-center justify-between md: flex-grow">
-          <div className="inline">
+        <nav className="p-0 font-semibold  flex items-center justify-between ">
+          <div className="hidden md:flex space-x-4">
             <input
               type="text"
-              placeholder="Search for products"
-              className="border-none font-semibold text-white placeholder:text-gray-200 rounded-md bg-gray-600 py-2 px-4 focus:outline-none cursor-pointer"
+              className="bg-gray-200 border-2 border-black p-2 w-full max-w-xs rounded "
+              placeholder="🔎 Search"
             />
-          </div>
-          <div className="hidden md:flex space-x-4">
             <Link
               to="/"
               className={`py-2 px-4 border-2 rounded-md border-transparent hover:border-gray-200 hover:text-gray-200 ${isActive(

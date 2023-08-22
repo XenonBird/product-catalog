@@ -1,6 +1,6 @@
 import { randomId, randomImageUrl, randomNumber } from "./utils";
 
-function generateRandomProduct(id) {
+function generateRandomProduct() {
   const colors = [
     "black",
     "white",
@@ -39,8 +39,10 @@ function generateRandomProduct(id) {
   return {
     id: randomId(),
     name: `${randomColor}  ${randomMaterial} ${randomType} `,
-    description: `This is the description of ${randomType} product ${id}.`,
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum voluptas officiis, provident rerum laboriosam consectetur quisquam fugiat, quis ipsam quidem cupiditate veritatis magnam ipsa dicta explicabo? Deleniti veniam nam natus? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste voluptatem tenetur alias itaque nesciunt, perspiciatis corrupti libero explicabo aliquam neque qui! Ad eveniet obcaecati quisquam, fuga impedit ducimus ut voluptatum.",
     price: randomNumber(2000, 200).toFixed(2),
+    discount: randomNumber(100),
     imageUrl: randomImageUrl(),
     category: "clothing",
     rating: Math.round(Math.random() * 10) / 2,

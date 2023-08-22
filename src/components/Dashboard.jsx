@@ -13,7 +13,8 @@ const ProductDashboard = () => {
         ? {
             id: randomId(),
             name: "",
-            description: "This is the description of this product",
+            description:
+              "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum voluptas officiis, provident rerum laboriosam consectetur quisquam fugiat, quis ipsam quidem cupiditate veritatis magnam ipsa dicta explicabo? Deleniti veniam nam natus? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste voluptatem tenetur alias itaque nesciunt, perspiciatis corrupti libero explicabo aliquam neque qui! Ad eveniet obcaecati quisquam, fuga impedit ducimus ut voluptatum.",
             price: 0,
             imageUrl: randomImageUrl(),
             category: "clothing",
@@ -58,7 +59,7 @@ const ProductDashboard = () => {
     <main className="w-full">
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-2xl underline underline-offset-8 font-semibold mb-4">
-          All products
+          All products ({productsList.length})
         </h1>
         <table className="table-auto w-full">
           <thead>
@@ -142,21 +143,21 @@ const ProductRow = ({
         {editingProductId === product.id ? (
           <input
             type="number"
-            className="text-center underline"
+            className="max-w-[70px] text-center underline"
             value={changedRow.price}
             onChange={(e) => {
               handleFieldChange(e.target.value, "price");
             }}
           />
         ) : (
-          `₹ ${product.price}`
+          product.price
         )}
       </td>
       <td className="border px-4 py-2 text-center">
         {editingProductId === product.id ? (
           <input
             type="number"
-            className="text-center underline"
+            className="max-w-[70px] text-center underline"
             value={changedRow.rating}
             onChange={(e) => {
               handleFieldChange(e.target.value, "rating");
@@ -197,7 +198,7 @@ const ProductRow = ({
         {editingProductId === product.id ? (
           <input
             type="url"
-            className="text-center underline"
+            className="max-w-[70px] text-center underline"
             value={changedRow.imageUrl}
             onChange={(e) => {
               handleFieldChange(e.target.value, "imageUrl");
@@ -215,7 +216,7 @@ const ProductRow = ({
           </p>
         )}
       </td>
-      <td className="border p-2 text-center ">
+      <td className="border p-2 flex flex-col gap-2">
         {editingProductId === product.id ? (
           <>
             <button
@@ -223,13 +224,13 @@ const ProductRow = ({
               onClick={handleSaveClick}
             >
               Save
-            </button>{" "}
+            </button>
             <button
               className="text-white bg-gray-500 py-1 px-2 rounded-[0.25rem]"
               onClick={handleCancelClick}
             >
               Cancel
-            </button>{" "}
+            </button>
             <button
               className="text-white bg-red-500 py-1 px-2 rounded-[0.25rem]"
               onClick={handleDeleteClick}
@@ -262,7 +263,11 @@ const NewProductRow = ({
   handleEditClick,
 }) => {
   return (
-    <tr>
+    <tr
+      className={
+        editingProductId && editingProductId !== "new" ? "opacity-30" : ""
+      }
+    >
       {editingProductId === "new" ? (
         <>
           <td className="px-4 py-2"></td>
@@ -280,7 +285,7 @@ const NewProductRow = ({
           <td className="border px-4 py-2 text-center">
             <input
               type="number"
-              className="text-center underline border-b border-b-black"
+              className="max-w-[70px] text-center underline border-b border-b-black"
               value={changedRow.price}
               onChange={(e) => {
                 handleFieldChange(e.target.value, "price");
@@ -290,7 +295,7 @@ const NewProductRow = ({
           <td className="border px-4 py-2 text-center">
             <input
               type="number"
-              className="text-center underline border-b border-b-black"
+              className="max-w-[70px] text-center underline border-b border-b-black"
               value={changedRow.rating}
               onChange={(e) => {
                 handleFieldChange(e.target.value, "rating");
@@ -330,9 +335,9 @@ const NewProductRow = ({
           </td>
         </>
       ) : (
-        <td className="px-4 py-2" colSpan={5}></td>
+        <td className="px-4 py-2" colSpan={6}></td>
       )}
-      <td className="p-2 text-center ">
+      <td className="p-2  flex flex-col gap-2">
         {editingProductId === "new" ? (
           <>
             <button
